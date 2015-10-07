@@ -1,0 +1,337 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Front-Lend——乐正的前端小栈</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+
+</head>
+
+<body>
+<!--header-->
+<div id="header">
+	<div class="container">
+    	<div class="logo">
+        	<a href="#"><span class="logo-h"> </span></a>
+            <h1>Front <span>lEnd</span></h1>
+            <p><strong>乐正</strong>的<span>前端小栈</span></p>
+    	</div>
+    </div>
+</div>
+<!--nav-->
+<div id="nav">
+	<div class="container">
+		<div class="logob">
+    		<a href="#"><img src="images/logo-1.png" alt=" " /></a> 
+    	</div>
+        <div class="navbar">
+        <span class="menu"> </span>
+        	<ul>
+					<li ><a href="#" class="scroll">首页</a></li>
+					<li><a href="#about" class="scroll">私之档案室</a> </li>
+					<li><a href="#blog" class="scroll">“前”路拾趣</a></li>
+					<li><a href="#project" class="scroll">作品展览馆</a></li>
+					<li><a href="#contact" class="scroll">仆之信箱</a></li>
+				</ul>
+        </div>
+    </div>
+</div>
+<!--//nav-->
+<!--//header-->
+<!--content-->
+<!--about-->
+<div id="content">
+	<div class="container">
+    <div id="about">
+    <div class="container">
+    	<h3>DECODE <span>ME</span></h3>
+        <p>
+{<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;"name":"刘乐",<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;"age":"21",<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;"birthday":"1993/10/24",<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;"school":"北京航空航天大学",<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;"major":"电子信息工程+数学与应用数学",<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;"graduation-time":"2015/6",<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;"contact":<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"TEL":"+86 18511696449",<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Mail":"charleslliu@163.com",<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+}<br/>
+        </p>
+    </div>
+ 	</div>
+<!--blog-->
+<div id="blog">
+    <div class="top-blog">
+        <h3>DISCOVER <span>ME</span></h3>
+    </div>
+    <div id="cycler">
+    	<div class="blog-title">
+        	<p id="tit1"><span>Leet题解</span>    怎样才能抢得最多——用动态规划解House Robber</p>
+			<div class="visit" id="ti1">
+            <p>+ visit my blog</p>
+			</div>
+        </div>
+       
+        <div class="blog-title">
+        	<p id="tit2"><span>前端心得</span>    随心切换——JavaScript实现随鼠标移动改变的标签页</p>
+			<div class="visit" id="ti2">
+				<p>+ visit my blog</p>
+			</div>
+        </div>
+        <div class="blog-title">
+        	<p id="tit3"><span>前端心得</span>    世界的奥义就是盒子——盒模型介绍</p>
+			<div class="visit" id="ti3">
+				<p>+ visit my blog</p>
+			</div>
+        </div>
+        <div class="blog-title">
+        	<p id="tit4"><span>Leet题解</span>    JAVA也好，JS也好——两种语言计算阶乘末尾零个数</p>
+			<div class="visit" id="ti4">
+				<p>+ visit my blog</p>
+			</div>
+        </div>
+    </div>
+     <div class="txt" id="txt1">
+     <div class="ti" id="newTi1"></div>
+        【题目描述】<p>你是一名专业强盗，计划沿着一条街打家劫舍。每间房屋都储存有一定数量的金钱，唯一能阻止你打劫的约束条件就是：由于房屋之间有安全系统相连，如果同一个晚上有两间相邻的房屋被闯入，它们就会自动联络警察，因此不可以打劫相邻的房屋。</p>
+
+<p>给定一列非负整数，代表每间房屋的金钱数，计算出在不惊动警察的前提下一晚上最多可以打劫到的金钱数。</p>
+【解题思路】
+<p>动态规划（Dynamic Programming）</p>
+<p>状态转移方程：</p>
+
+<p>dp[i] = max(dp[i - 1], dp[i - 2] + num[i - 1])</p>
+
+<p>其中，dp[i]表示打劫到第i间房屋时累计取得的金钱最大值。</p>
+
+<p>时间复杂度O(n)，空间复杂度O(n)。</p>
+【JAVA代码】
+<p><code>public class Solution {<br/>
+    public int rob(int[] num) {<br/>
+       int i,n,a,b,t;<br/>
+       n=num.length;<br/>
+       a=0;b=0;<br/>
+       for(i=0;i&lt;n;i++){<br/>
+           t=a;<br/>
+           if(a&lt;b)<br/> 
+           a=b;<br/>
+           b=t+num[i];<br/>
+       }<br/>
+       if(a>b) return a;<br/>
+       else return b;<br/>
+        
+    }<br/>
+}</code></p>
+	</div>
+    <div class="txt" id="txt2">
+    <div class="ti" id="newTi2"></div>
+    【编程挑战】<p>使用JavaScript，实现如下选项卡切换。</p>
+    <p><strong>效果图：</strong></p>
+    <img src="images/xiaoguo.png" style="display:block"/>
+    【实现思路】
+    <h5>一、HTML页面布局</h5>
+    <blockquote>选项卡标题使用ul..li<br/>
+	选项卡内容使用div</blockquote>
+    <h5>二、CSS样式制作</h5>
+    <blockquote>整个选项卡的样式设置<br/>
+选项卡标题的样式设置<br/>
+选项卡内容的样式设置<br/>
+一开始只显示一个选项卡内容，其它选项卡内容隐藏。</blockquote>
+    <h5>三、JS实现选项卡切换</h5>
+    <blockquote>获取选项卡标题和选项卡内容<br/>
+选项卡内容多个，需要循环遍历来操作，得知哪个选项卡和哪个<br/>选项内容匹配<br/>
+通过改变DOM的css类名称,当前点击的选项卡显示，其它隐藏。</blockquote>
+	<a href="tabcode.txt" class="tabcode" target="_blank">代码下载</a> 
+    </div>
+    <div class="txt" id="txt3">
+    <div class="ti" id="newTi3"></div>
+    【盒子模型定义】<p>如果CSS对HTML文档元素生成了一个描述该元素在HTML文档布局中所占空间的矩形元素框（element box），那么我们可以形象地将其看作是一个盒子。CSS围绕这些盒子产生了一种“盒子模型”概念，通过定义一系列与盒子相关的属性（内容、填充、边框、边界），可以控制各个盒子乃至整个HTML文档的表现效果和布局结构。虽然CSS中没有盒子这个单独的属性对象，但它却是CSS中无处不在的一个重要组成部分。</p>
+    <p>盒子模型如下：</p>
+    <img src="images/box.png" style="display:block"/>
+    【盒子计算】
+    <p>盒子本身的大小是这样计算的：</p>
+<strong>实际宽度： </strong>
+<p>width + padding-left + padding-right + border-left + border-right</p>
+
+<strong>实际高度： </strong>
+<p>height + padding-top + padding-bottom + border-top + border-bottom</p>
+    </div>
+    <div class="txt" id="txt4">
+    	<div class="ti" id="newTi4"></div>
+    	【题目描述】<p>给你一个整数n，求出其阶乘n!末尾有多少零。</p>
+        <p>提示：你的算法必须是对数级时间复杂度。</p>
+        【解题思路】<p>只有2和5相乘才会出现0，其中整十也可以看做是2和5相乘的结果，所以，可以在n之前看看有多少个2以及多少个5就行了，又发现2的数量一定多于5的个数，于是我们只看n前面有多少个5就行了，于是n/5就得到了5的个数，还有一点要注意的就是25这种，5和5相乘的结果，所以，还要看n/5里面有多少个5，也就相当于看n里面有多少个25，还有125，625。。。</p>
+        <p>注意：JavaScript需要使用Math.floor()方法下取整。</p>
+        【JAVA代码】
+        <p><code>public class Solution {<br/>
+    		public int trailingZeroes(int n) {<br/>
+        		int num=0;<br/>
+        		while(n>0){<br/>
+            	num+=n/5;<br/>
+            	n/=5;<br/>
+        		}<br/>
+        	return num;<br/>
+   	 		}<br/>
+		}</code></p>
+        【JAVASCRIPT代码】
+        <p><code>/**<br/>
+		  * @param {number} n<br/>
+ 		  * @return {number}<br/>
+ 		*/<br/>
+		var trailingZeroes = function(n) {<br/>
+   	 	var num=0,x=5;<br/>
+    	while(n>=x){<br/>
+        	num+=Math.floor(n/x);<br/>
+        	x*=5;<br/>
+    	}<br/>
+    	return num;<br/>
+		};</code></p>
+    </div> 
+</div>
+<!--//blog-->
+<!--project-->
+<div id="project">
+  <div class="case-text">
+		<h3>DETECT <span> ME</span></h3>
+		<small>2048——我的第一个Web游戏</small>
+		<p>虽然2048的热度已经过去了，不过它作为一款火爆一时的中毒性游戏，由于其简单的规则与引人上瘾的比拼特性，依然经典。<br/>
+      因此在我学习了JavaScript之后，便迫不及待的自己实现了一个复刻版。玩自己写出来的游戏，别有一番成就感。<br/>
+        作为一个新手，实现这个游戏不算简单，在此感谢慕课网的课程，通俗易懂，深入浅出。也感谢一路走来帮助我的人。</p>
+		<a class="case-button" href="2048/index.html" target="_blank">View Case Study</a>
+    </div>
+    <div class="case-text case">
+    	<img src="images/stt.jpg" alt="" />
+    </div>
+</div>
+<!--//project-->
+<!--contact-->
+<div id="contact">
+	<div class="contact-top">
+    	<h3>DATE <span> ME</span></h3>
+    </div>
+    <form action="MAILTO:charleslliu@163.com?subject=乐正我想认识你！" method="post" enctype="text/plain">
+    <div class="contact-form">
+    	<input type="text" value="你的名字" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 你的名字';}">
+		<input type="text" value=" Email" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Email';}">
+		<input type="text" value="电话号码" onfocus="this.value='';" onblur="if (this.value == '') {this.value = '电话号码';}">
+		<input type="text" value="主题" onfocus="this.value='';" onblur="if (this.value == '') {this.value = '主题';}">
+		<textarea cols="77" rows="6" value=" " onfocus="this.value='';" onblur="if (this.value == '') {this.value = '你要对我说的话*';}">你要对我说的话*</textarea>
+	</div>	
+	<div class="send"><input type="submit" value="发送" ></div>
+    </form>
+</div>
+<!--//contact-->
+
+</div>
+</div>
+<!--//contant-->
+<!--footer-->
+<div id="footer">
+	<p>身体与心灵，总有一个在路上。</p>
+	<ul>
+		<li><a href="http://www.weibo.com/yaozhiwb"  target="_blank" class="weibo"> </a></li>
+		<li><a href="https://github.com/Yourz" target="_blank" class="github"> </a></li>
+	
+	</ul>
+	<p class="copyright">Powered by Joey Liu</p>
+    <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity:1;"> </span></a>
+</div>
+<!--//footer-->
+<!-- script-nav -->
+	<script>
+		$("span.menu").click(function(){
+			$(".navbar ul").slideToggle(500, function(){});
+		});
+	</script>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+		});
+	</script>
+<!--cycler-->
+	<script>
+		function cycle($item, $cycler){
+			setTimeout(cycle, 2000, $item.next(), $cycler);	
+			$item.slideUp(1000,function(){
+				$item.appendTo($cycler).show();        
+			});
+		}
+		cycle($('#cycler div:first'),  $('#cycler'));
+</script>
+<!--blog1-->
+	<script type="text/javascript">
+        $(function () {
+			var interval=1200;
+            $("#newTi1").html($("#tit1").html());
+			$("#ti1").bind("click", function () {
+				$("#txt1").slideDown(interval);
+				$("#cycler").slideUp(interval);
+				$("#newTi1").slideToggle(interval); 
+            });
+			$("#newTi1").bind("click",function(){
+				$("#newTi1").slideToggle(interval);
+				$("#cycler").slideDown(interval);
+				$("#txt1").slideUp(interval);
+			});
+        });
+    </script>
+<!--blog2-->
+	<script type="text/javascript">
+        $(function () {
+			var interval=1200;
+            $("#newTi2").html($("#tit2").html());
+			$("#ti2").bind("click", function () {
+				$("#txt2").slideDown(interval);
+				$("#cycler").slideUp(interval);
+				$("#newTi2").slideToggle(interval);
+            });
+			$("#newTi2").bind("click",function(){
+				$("#newTi2").slideToggle(interval);
+				$("#cycler").slideDown(interval);
+				$("#txt2").slideUp(interval);
+			});
+        });
+    </script>
+<!--blog3-->
+	<script type="text/javascript">
+        $(function () {
+			var interval=1200;
+            $("#newTi3").html($("#tit3").html());
+			$("#ti3").bind("click", function () {
+				$("#txt3").slideDown(interval);
+				$("#cycler").slideUp(interval);
+				$("#newTi3").slideToggle(interval);
+            });
+			$("#newTi3").bind("click",function(){
+				$("#newTi3").slideToggle(interval);
+				$("#cycler").slideDown(interval);
+				$("#txt3").slideUp(interval);
+			});
+        });
+    </script>
+<!--blog4-->
+	<script type="text/javascript">
+        $(function () {
+			var interval=1200;
+            $("#newTi4").html($("#tit4").html());
+			$("#ti4").bind("click", function () {
+				$("#txt4").slideDown(interval);
+				$("#cycler").slideUp(interval);
+				$("#newTi4").slideToggle(interval);
+            });
+			$("#newTi4").bind("click",function(){
+				$("#newTi4").slideToggle(interval);
+				$("#cycler").slideDown(interval);
+				$("#txt4").slideUp(interval);
+			});
+        });
+    </script>
+</body>
+</html>
